@@ -8,7 +8,7 @@ function taiKhoan(){
             if (data) {
                 $('#btn_dang_nhap').replaceWith('<div id="so_du" class="nav-link tacvu border border-secondary rounded">SỐ DƯ: ' + data.so_du + ' VNĐ</div>');
                 $('#btn_dang_ky').replaceWith('<button id="btn_dang_xuat" class="nav-link tacvu border border-secondary rounded" onclick="dangXuat()">ĐĂNG XUẤT</button>');
-                $('#btn_trang_chu').replaceWith('<a id="btn_trang_chu" class="nav-link tacvu" href="trangchubanacc.html?id='+ id +'">TRANG CHỦ</a>');
+                $('#btn_trang_chu').replaceWith('<a id="btn_trang_chu" class="nav-link tacvu" href="index.html?id='+ id +'">TRANG CHỦ</a>');
                 $('#btn_nap_tien').replaceWith('<a id="btn_nap_tien" class="nav-link tacvu" href="napThe.html?id='+ id +'">NẠP TIỀN</a>');
                 $('#btn_dich_vu').replaceWith('<a id="btn_dich_vu" class="nav-link tacvu" href="DichVu.html?id='+ id +'">DỊCH VỤ</a>');
                 $('#btn_shop_acc').replaceWith('<a id="btn_shop_acc" class="nav-link tacvu" href="shopAccNRO.html?id='+ id +'">NIK GAME</a>');
@@ -17,9 +17,9 @@ function taiKhoan(){
                 });
                 console.log($('.xem_them'));
                 $('#btn_shop_acc2').replaceWith('<a id="btn_shop_acc2" href="shopAccNRO.html?id='+ id +'" class="col-4 col-md-2 m-4 px-0 anhmenu"><img class="w-100 h-100" src="anhbanacc.png" alt="Bán acc"></a>');
-                $('#btn_dich_vu2').replaceWith('<a id="btn_dich_vu2" href="trangchubanacc.html?id='+ id +'" class="col-4 col-md-2 m-4 px-0 anhmenu"><img class="w-100 h-100" src="anhdichvu.png" alt="Dịch vụ"></a>');
+                $('#btn_dich_vu2').replaceWith('<a id="btn_dich_vu2" href="index.html?id='+ id +'" class="col-4 col-md-2 m-4 px-0 anhmenu"><img class="w-100 h-100" src="anhdichvu.png" alt="Dịch vụ"></a>');
                 $('#btn_tai_khoan').replaceWith('<a id="btn_tai_khoan" href="taiKhoan.html?id='+ id +'" class="col-4 col-md-2 m-4 px-0 anhmenu"><img class="w-100 h-100" src="anhtaikhoan.png" alt="Tài khoản"></a>');
-                $('#btn_vong_quay').replaceWith('<a id="btn_vong_quay" href="trangchubanacc.html?id='+ id +'" class="col-4 col-md-2 m-4 px-0 anhmenu"><img class="w-100 h-100" src="anhvongquay.png" alt="Vòng quay"></a>');
+                $('#btn_vong_quay').replaceWith('<a id="btn_vong_quay" href="index.html?id='+ id +'" class="col-4 col-md-2 m-4 px-0 anhmenu"><img class="w-100 h-100" src="anhvongquay.png" alt="Vòng quay"></a>');
                 $('#tai_khoan').replaceWith('<a id="tai_khoan" class="on" href="taiKhoan.html?id=' + id + '">Thông tin tài khoản</a>');
                 $('#nap_the').replaceWith('<a id="nap_the" href="napThe.html?id=' + id + '">Nạp tiền thẻ cào</a>');
                 $('#nap_momo').replaceWith('<a id="nap_momo" href="napMomo.html?id=' + id + '">Nạp tiền Momo</a>');
