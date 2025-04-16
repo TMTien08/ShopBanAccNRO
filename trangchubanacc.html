@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+        <style>
+            .nen {
+                background-color: rgba(0, 0, 0, 0.4); /* Màu nền với độ trong suốt 60% */
+            }
+            body {
+                background-image: url('https://i0.wp.com/thatnhucuocsong.com.vn/wp-content/uploads/2022/01/tai-anh-7-vien-ngoc-rong.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-position: center;
+            }
+            .co {
+                max-width: 1200px;
+            }
+            .tacvu {
+                color: #ffffff;
+                font-weight: 700;
+            }
+            .tacvu:hover {
+                color: #311fd0;
+            }
+            
+            .anhmenu:hover {
+                transform: scale(1.1);
+            }
+            .chu{
+                text-decoration: none; 
+                color: #000000; 
+                font-weight: 700; 
+                font-size: clamp(12px, 2vw, 15px); 
+                display: block; 
+                text-align: center;
+            }
+            .xemthem{
+                border: 1px solid #0096ff; 
+                border-radius: 6px; 
+                background-color: #ffffff;
+                display: block; 
+                text-align: center;
+                text-decoration: none;
+                width: 60%;
+                font-size: clamp(12px, 2vw, 15px); 
+            }
+            .xemthem:hover{
+                background-color: #0096ff;
+                color: #ffffff;
+            }
+            .khung{
+                background-color: #ffffff; 
+                border: 1px solid rgb(89, 89, 106); 
+                border-radius: 6px;
+            }
+            .blank {
+                flex: 1;
+            }
+            h2{
+                color: #ffffff;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark nen">
+            <div class="container co mx-auto">
+                <a class="navbar-brand" href="#">
+                    <img src="anhshopvip.png" style="height: 100px; width: 200px;" class="img-fluid" alt="Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a id="btn_trang_chu" class="nav-link tacvu" href="trangchubanacc.html">TRANG CHỦ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="btn_nap_tien" class="nav-link tacvu" href="dang_nhap.html">NẠP TIỀN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="btn_dich_vu" class="nav-link tacvu" href="DichVu.html">DỊCH VỤ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="btn_shop_acc" class="nav-link tacvu" href="shopAccNRO.html">NIK GAME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="btn_dang_nhap" class="nav-link tacvu border border-secondary rounded" href="dang_nhap.html"><i class="bi bi-person"></i> ĐĂNG NHẬP</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="btn_dang_ky" class="nav-link tacvu border border-secondary rounded" href="dangKyTaiKhoan.html"><i class="bi bi-key"></i> ĐĂNG KÝ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="gioithieuCarousel" class="carousel slide col co mx-auto nen mt-3 py-4" data-bs-ride="carousel">
+            <h2 class="text-center">GIỚI THIỆU</h2>
+            <div style="width: 100px; height: 1px; margin: 20px auto; border-bottom: 4px solid #e90606;"></div>
+            <div class="mx-auto" style="width: 80%;">
+                <div class="carousel-inner w-100">
+                    <div class="carousel-item active">
+                        <a href="trangchubanacc.html">
+                            <img class="d-block w-100 h-10" src="anhupSMSP.png" alt="">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="shopAccNRO.html">
+                            <img class="d-block w-100 h-40" src="anhaccvip.png" alt="">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="trangchubanacc.html">
+                            <img class="d-block w-100 h-40" src="anhkhoitem.png" alt="">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="trangchubanacc.html">
+                            <img class="d-block w-100 h-40" src="anhsande.png" alt="">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="trangchubanacc.html">
+                            <img class="d-block w-100 h-40" src="anhbanngoc.png" alt="">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="trangchubanacc.html">
+                            <img class="d-block w-100 h-40" src="anhbanvang.png" alt="">
+                        </a>
+                    </div>
+                
+                    <!-- Tùy chọn điều khiển Previous/Next -->
+                    <a class="carousel-control-prev my-auto" style="width: 5%; height: 8%; background-color: #000000;" href="#gioithieuCarousel" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </a>
+                    <a class="carousel-control-next my-auto" style="width: 5%; height: 8%; background-color: #000000;" href="#gioithieuCarousel" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="col co mx-auto nen mt-3 py-4">
+            <h2 class="text-center">MENU GIAO DỊCH</h2>
+            <div style="width: 100px; height: 1px; margin: 20px auto; border-bottom: 4px solid #e90606;"></div>
+            <div class="row justify-content-center">
+                <a id="btn_tai_khoan" href="dang_nhap.html" class="col-4 col-md-2 m-4 px-0 anhmenu">
+                    <img class="w-100 h-100" src="anhtaikhoan.png" alt="Tài khoản">
+                </a>
+                <a id="btn_dich_vu2" href="DichVu.html" class="col-4 col-md-2 m-4 px-0 anhmenu">
+                    <img class="w-100 h-100" src="anhdichvu.png" alt="Dịch vụ">
+                </a>
+                <a id="btn_shop_acc2" href="shopAccNRO.html" class="col-4 col-md-2 m-4 px-0 anhmenu">
+                    <img class="w-100 h-100" src="anhbanacc.png" alt="Bán acc">
+                </a>
+                <a id="btn_vong_quay" href="trangchubanacc.html" class="col-4 col-md-2 m-4 px-0 anhmenu">
+                    <img class="w-100 h-100" src="anhvongquay.png" alt="Vòng quay">
+                </a>
+            </div>
+        </div>
+        <div class="col co mx-auto nen mt-3 py-4">
+            <h2 class="text-center">DANH MỤC GAME</h2>
+            <div style="width: 100px; height: 1px; margin: 20px auto; border-bottom: 4px solid #0096ff;"></div>
+            <div class="row justify-content-center">
+                <div class="col-4 col-md-2 m-4 p-1 anhmenu khung" style="display: flex; flex-direction: column;">
+                    <img class="w-100" src="anhaccvip.png" alt="Tài khoản">
+                    <div class="chu mb-2">NGỌC RỒNG ACC VIP</div>
+                    <div class="blank"></div>
+                    <a  href="shopAccNRO.html" class="mx-auto m-1 xemthem">XEM THÊM</a>
+                </div>
+                <div class="col-4 col-md-2 m-4 p-1 anhmenu khung" style="display: flex; flex-direction: column;">
+                    <img class="w-100" src="anhkhoitem.png" alt="Tài khoản">
+                    <div class="chu mb-2">KHO ĐỒ XỊN SÒ</div>
+                    <div class="blank"></div>
+                    <a  href="trangchubanacc.html" class="mx-auto m-1 xemthem">XEM THÊM</a>
+                </div>
+                <div class="col-4 col-md-2 m-4 p-1 anhmenu khung" style="display: flex; flex-direction: column;">
+                    <img class="w-100" src="anhrandom.png" alt="Tài khoản">
+                    <div class="chu mb-2">VÒNG QUAY MAY MẮN</div>
+                    <div class="blank"></div>
+                    <a  href="trangchubanacc.html" class="mx-auto m-1 xemthem">XEM THÊM</a>
+                </div>
+            </div>
+        </div>
+        <div class="col co mx-auto nen mt-3 py-4">
+            <h2 class="text-center">DỊCH VỤ GAME</h2>
+            <div style="width: 100px; height: 1px; margin: 20px auto; border-bottom: 4px solid #0096ff;"></div>
+            <div class="row justify-content-center">
+                <div class="col-4 col-md-2 m-4 p-1 anhmenu khung" style="display: flex; flex-direction: column;">
+                    <img class="w-100" src="anhbanngoc.png" alt="Tài khoản">
+                    <div class="chu mb-2">BÁN NGỌC TỰ ĐỘNG</div>
+                    <div class="blank"></div>
+                    <a  href="trangchubanacc.html" class="mx-auto m-1 xemthem">XEM THÊM</a>
+                </div>
+                <div class="col-4 col-md-2 m-4 p-1 anhmenu khung" style="display: flex; flex-direction: column;">
+                    <img class="w-100" src="anhbanvang.png" alt="Tài khoản">
+                    <div class="chu mb-2">BÁN VÀNG TỰ ĐỘNG</div>
+                    <div class="blank"></div>
+                    <a  href="trangchubanacc.html" class="mx-auto m-1 xemthem">XEM THÊM</a>
+                </div>
+                <div class="col-4 col-md-2 m-4 p-1 anhmenu khung" style="display: flex; flex-direction: column;">
+                    <img class="w-100" src="anhsande.png" alt="Tài khoản">
+                    <div class="chu mb-2">SĂN ĐỆ TỬ</div>
+                    <div class="blank"></div>
+                    <a  href="trangchubanacc.html" class="mx-auto m-1 xemthem">XEM THÊM</a>
+                </div>
+                <div class="col-4 col-md-2 m-4 p-1 anhmenu khung" style="display: flex; flex-direction: column;">
+                    <img class="w-100" src="anhlamnv.png" alt="Tài khoản">
+                    <div class="chu mb-2">LÀM NHIỆM VỤ</div>
+                    <div class="blank"></div>
+                    <a  href="trangchubanacc.html" class="mx-auto m-1 xemthem">XEM THÊM</a>
+                </div>
+                <div class="col-4 col-md-2 m-4 p-1 anhmenu khung" style="display: flex; flex-direction: column;">
+                    <img class="w-100" src="anhupMSDT.png" alt="Tài khoản">
+                    <div class="chu mb-2">ÚP SỨC MẠNH ĐỆ TỬ</div>
+                    <div class="blank"></div>
+                    <a  href="trangchubanacc.html" class="mx-auto m-1 xemthem">XEM THÊM</a>
+                </div>
+                <div class="col-4 col-md-2 m-4 p-1 anhmenu khung" style="display: flex; flex-direction: column;">
+                    <img class="w-100" src="anhupSMSP.png" alt="Tài khoản">
+                    <div class="chu mb-2">ÚP SỨC MẠNH SƯ PHỤ</div>
+                    <div class="blank"></div>
+                    <a  href="trangchubanacc.html" class="mx-auto m-1 xemthem">XEM THÊM</a>
+                </div>
+                <div class="col-4 col-md-2 m-4 p-1 anhmenu khung" style="display: flex; flex-direction: column;">
+                    <img class="w-100" src="anhupbikip.png" alt="Tài khoản">
+                    <div class="chu mb-2">UP BÍ KÍP</div>
+                    <div class="blank"></div>
+                    <a  href="trangchubanacc.html" class="mx-auto m-1 xemthem">XEM THÊM</a>
+                </div>
+                <div class="col-4 col-md-2 m-4 p-1 anhmenu khung" style="display: flex; flex-direction: column;">
+                    <img class="w-100" src="anhthanhlynik.png" alt="Tài khoản">
+                    <div class="chu mb-2">THANH LÝ NICK</div>
+                    <div class="blank"></div>
+                    <a  href="trangchubanacc.html" class="mx-auto mb-1 mt-auto xemthem">XEM THÊM</a>
+                </div>
+            </div>
+        </div>
+        <div style="background-color: #2f353b; height: 500px">
+            <div class="row co mx-auto mt-3 py-4" style="background-color: #2f353b;">
+                <div class="col-md-5 p-4" style="color: #5c6873;">HỆ THỐNG BÁN ACC NGỌC RỒNG TỰ ĐỘNG - ĐẢM BẢO UY TÍN VÀ CHẤT LƯỢNG.</div>
+                <div class="col-md-5 p-4" style="color: #5c6873;">CHÚNG TÔI LUÔN LẤY UY TÍN LÀM HÀNG ĐẦU ĐỐI VỚI KHÁCH HÀNG. HI VỌNG SẼ ĐƯỢC PHỤC VỤ CÁC BẠN. CẢM ƠN!</div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                // Lấy id từ URL
+                taiKhoan();
+            });
+            
+        </script>
+        <script src="dangNhap.js"></script>
+        
+    </body>
+</html>

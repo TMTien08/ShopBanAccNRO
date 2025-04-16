@@ -1,0 +1,83 @@
+{
+  "nicknro": [
+    {
+      "id": "4e77",
+      "TK": "2",
+      "MK": "2",
+      "gia": "40000",
+      "dangky": "dang_ky_chinh_chu",
+      "hanhtinh": "namec",
+      "server": "server_5",
+      "loaiacc": "vip",
+      "bongtai": "co",
+      "soanh": "0",
+      "anh1": "",
+      "anh2": "",
+      "anh3": "",
+      "anh4": ""
+    },
+    {
+      "id": "06b3",
+      "TK": "3",
+      "MK": "3",
+      "gia": "250000",
+      "dangky": "dang_ky_ao",
+      "hanhtinh": "xayda",
+      "server": "server_3",
+      "loaiacc": "win_doanh_trai",
+      "bongtai": "khong",
+      "soanh": "0",
+      "anh1": "",
+      "anh2": "",
+      "anh3": "",
+      "anh4": ""
+    }
+  ],
+  "taikhoan": [
+    {
+      "tai_khoan": "a",
+      "email": "a@gmail.com",
+      "SDT": "0000000000",
+      "mat_khau": "a",
+      "so_du": "1060000",
+      "id": "e14b"
+    },
+    {
+      "tai_khoan": "luong",
+      "email": "luong@gmail.com",
+      "SDT": "0362345678",
+      "mat_khau": "d",
+      "so_du": "11999995990000",
+      "id": "8e3d"
+    },
+    {
+      "id": "01a9",
+      "tai_khoan": "b",
+      "email": "b@gmail.com",
+      "SDT": "0000000001",
+      "mat_khau": "b",
+      "so_du": "220000"
+    }
+  ],
+  "napthe": [],
+  "giamgia": [
+    {
+      "ma_giam_gia": "123",
+      "so_tiem_giam": "50000",
+      "id": "aab5"
+    }
+  ],
+  "nikDaMua": [
+    {
+      "id": "f9b8",
+      "gia": "50000",
+      "dangky": "Ảo",
+      "hanhtinh": "Trái Đất",
+      "server": "Server 1",
+      "loaiacc": "Sơ Sinh",
+      "bongtai": "Không",
+      "maAcc": "ba33 ",
+      "maTK": "8e3d"
+    }
+  ]
+}

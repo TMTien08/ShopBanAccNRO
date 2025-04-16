@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+        <style>
+            .nen {
+                background-color: rgba(0, 0, 0, 0.6); /* Màu trắng với độ trong suốt 80% */
+                }
+            body {
+                background-image: url('https://i0.wp.com/thatnhucuocsong.com.vn/wp-content/uploads/2022/01/tai-anh-7-vien-ngoc-rong.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-position: center;
+            }
+            .co {
+                max-width: 350px;
+            }
+            .blank{
+                flex: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="co mx-auto border border-secondary mt-2 p-5 pt-0 rounded mb-2 nen">
+            <a href="trangchubanacc.html"><img src="anhshopvip.png" style="height: 100px; width: 200px;" class="mx-auto" alt="Logo"></a>
+            <div class="col-md-12"><input class="form-control mt-3" type="text" id="email_SDT" name="email_SDT" placeholder="email/Số điện thoại:"></div>
+            <div class="col-md-12"><input class="form-control mt-3" type="password" id="mat_khau_cu" name="mat_khau_cu" placeholder="Mật khẩu cũ:"></div>
+            <div class="col-md-12"><input class="form-control mt-3" type="password" id="mat_khau_moi" name="mat_khau_moi" placeholder="Mật khẩu mới:"></div>
+            <div class="col-md-12"><input class="form-control mt-3" type="password" id="xn_mat_khau" name="xn_mat_khau" placeholder="xác nhận Mật khẩu:"></div>
+            <div class="mx-auto my-3 col-6"><button type="button" class="btn btn-primary col-md-12 col-12" id="btnGui">Đổi mật khẩu</button></div> 
+            <div class="text-center">
+                <a style="color: aliceblue;" href="quenMatKhau.html">Quên mật khẩu?</a>
+            </div>
+            <div class="text-center">
+                <i style="color: aliceblue;">chưa có tài khoản?</i>
+                <a href="dangKyTaiKhoan.html">ĐĂNG KÝ</a>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $('#btnGui').click(function(){
+                    doiMK();
+                });
+            });
+        
+            function doiMK(){
+                var email_SDT = $('#email_SDT').val();
+                var mat_khau_cu = $('#mat_khau_cu').val();
+                var mat_khau_moi = $('#mat_khau_moi').val();
+                var xn_mat_khau = $('#xn_mat_khau').val();
+                var doiMK = false;
+                
+                if(email_SDT === "" || mat_khau_cu === "" || mat_khau_moi === "" || xn_mat_khau == ""){
+                    alert('Vui lòng nhập đầy đủ thông tin');
+                }
+                else if(mat_khau_moi != xn_mat_khau){
+                    alert('Nhập mật khẩu mới không khớp nhau')
+                }
+
+                $.get("http://localhost:3000/taikhoan", function(data, status){
+                    data.forEach(function(item){
+                        
+                        if((email_SDT == item.SDT || email_SDT == item.email) && mat_khau_cu == item.mat_khau){
+                            doiMK = true;
+                            item.mat_khau = mat_khau_moi;
+
+                            $.ajax({
+                                url: 'http://localhost:3000/taikhoan/'+ item.id,
+                                type: 'PUT',
+                                data: JSON.stringify(item),
+                                contentType: "application/json; charset=utf-8",
+                                dataType: "json",
+                                success: function(response) {
+                                    alert('Đổi mật khẩu thành công');
+                                    datLaiForm();
+                                },
+                                error: function(xhr, status, error) {
+                                    console.error('Lỗi:', error);
+                                    alert('Đã xảy ra lỗi khi đổi mật khẩu.');
+                                }
+                            });
+                        }
+                        
+                    });
+                    if(!doiMK){
+                        alert('Email/Số điện thoại hoặc mật khẩu cũ không chính xác');
+                    }
+                });
+            }
+            function datLaiForm(){
+                $('#email_SDT').val('');
+                $('#mat_khau_cu').val('');
+                $('#mat_khau_moi').val('');
+                $('#xn_mat_khau').val('');
+            }
+
+        </script>
+        
+    </body>
+</html>

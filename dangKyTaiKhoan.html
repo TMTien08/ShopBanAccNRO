@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    </head>
+    <style>
+        .nen {
+            background-color: rgba(0, 0, 0, 0.6); /* Màu trắng với độ trong suốt 80% */
+            }
+        body {
+            background-image: url('https://i0.wp.com/thatnhucuocsong.com.vn/wp-content/uploads/2022/01/tai-anh-7-vien-ngoc-rong.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        .co {
+            max-width: 350px;
+        }
+        .khung{
+            border: 1px solid rgb(89, 89, 106); 
+            border-radius: 10px;
+        }
+    </style>
+    <body class="container">
+        <div class="co mx-auto border border-secondary mt-2 p-5 pt-0 rounded mb-2 nen">
+            <a href="trangchubanacc.html"><img src="anhshopvip.png" style="height: 100px; width: 200px;" class="mx-auto" alt="Logo"></a>
+            <div class="col-md-12"><input class="form-control mt-3" type="text" id="tai_khoan" name="tai_khoan" placeholder="Tài khoản:"></div>
+            <div class="col-md-12"><input class="form-control mt-3" type="email" id="email" name="email" placeholder="email:"></div>
+            <div class="col-md-12"><input class="form-control mt-3" type="tel" id="SDT" name="SDT" placeholder="Số điện thoại:"></div>
+            <div class="col-md-12"><input class="form-control mt-3" type="password" id="mat_khau" name="mat_khau" placeholder="Mật khẩu:"></div>
+            <div class="col-md-12"><input class="form-control mt-3" type="password" id="xn_mat_khau" name="xn_mat_khau" placeholder="Nhập lại mật khẩu:"></div>
+            <div class="mx-auto my-4 col-5"><button type="button" class="btn btn-primary col-md-12 col-12" id="btnGui">Đăng ký</button></div> 
+            <div class="text-center">
+                <i style="color: aliceblue;">đã có tài khoản?</i><a href="dang_nhap.html">ĐĂNG NHẬP</a>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function(){
+                $('#btnGui').click(function(){
+                    var tai_khoan = $('#tai_khoan').val();
+                    var email = $('#email').val();
+                    var SDT = $('#SDT').val();
+                    var mat_khau = $('#mat_khau').val();
+                    var xn_mat_khau = $('#xn_mat_khau').val();
+
+                    let doc = $('#email').val();
+                    let a = doc.substring(doc.length - 10, doc.length);
+                    let doc2 = $('#SDT').val();
+                    let b = doc2[0];
+                    if(tai_khoan === "" || email === "" || SDT === "" || mat_khau === "" || xn_mat_khau === ""){
+                        alert('Hãy nhập đầy đủ thông tin')
+                    }
+                    else if (a != "@gmail.com") {
+                        alert('Không đúng định dạng email')
+                    } 
+                    else if(SDT.length < 10 || SDT.length > 10 ){
+                        alert('Số điện thoại phải đúng 10 số') 
+                    }
+                    else if(xn_mat_khau != mat_khau){
+                        alert('mật khẩu không trùng nhau')
+                    }
+                    else if(isNaN(SDT) || b !== '0'){
+                        alert('số điện thoại sai')
+                    }
+                    else{
+                        // Kiểm tra tài khoản trùng lặp
+                        $.ajax({
+                            url: 'http://localhost:3000/taikhoan?tai_khoan=' + encodeURIComponent(tai_khoan),
+                            type: 'GET',
+                            success: function(response){
+                                if (response.length > 0) {
+                                    alert('bạn đã bị trùng tài khoản');
+                                } else {
+                                    // Kiểm tra email trùng lặp
+                                    $.ajax({
+                                        url: 'http://localhost:3000/taikhoan?email=' + encodeURIComponent(email),
+                                        type: 'GET',
+                                        success: function(response){
+                                            if (response.length > 0) {
+                                                alert('bạn đã bị trùng email');
+                                            } else {
+                                                // Kiểm tra số điện thoại trùng lặp
+                                                $.ajax({
+                                                    url: 'http://localhost:3000/taikhoan?SDT=' + encodeURIComponent(SDT),
+                                                    type: 'GET',
+                                                    success: function(response){
+                                                        if (response.length > 0) {
+                                                            alert('bạn đã bị trùng số điện thoại');
+                                                        } else {
+                                                            // Nếu không trùng, tiếp tục gửi dữ liệu đăng ký
+                                                            var data = {
+                                                                tai_khoan: tai_khoan,
+                                                                email: email,
+                                                                SDT: SDT,
+                                                                mat_khau: mat_khau,
+                                                                so_du: 0,
+                                                            };
+                                                            $.ajax({
+                                                                url: 'http://localhost:3000/taikhoan',
+                                                                type: 'POST',
+                                                                data: JSON.stringify(data),
+                                                                contentType: "application/json; charset=utf-8",
+                                                                dataType: "json",
+                                                                success: function(response){
+                                                                    alert('bạn đã đăng ký thành công');
+                                                                    datLaiForm();
+                                                                    chuyenTrang();
+                                                                },
+                                                                error: function(xhr, status, error){
+                                                                    console.error('Lỗi: ', error);
+                                                                    alert('đã sảy ra lỗi');
+                                                                }
+                                                            });
+                                                            
+                                                        }
+                                                    },
+                                                    error: function(xhr, status, error){
+                                                        console.error('Lỗi: ', error);
+                                                        alert('đã sảy ra lỗi 1');
+                                                    }
+                                                });
+                                            }
+                                        },
+                                        error: function(xhr, status, error){
+                                            console.error('Lỗi: ', error);
+                                            alert('đã sảy ra lỗi 2');
+                                        }
+                                    });
+                                    
+                                }
+                            },
+                            error: function(xhr, status, error){
+                                console.error('Lỗi: ', error);
+                                alert('đã sảy ra lỗi 3');
+                            }
+                        });
+                    }
+                });
+            });
+            
+            function datLaiForm(){
+                $('#tai_khoan').val('');
+                $('#email').val('');
+                $('#SDT').val('');
+                $('#mat_khau').val('');
+                $('#xn_mat_khau').val('');
+                
+            }
+
+            function chuyenTrang(){
+                window.location.href = "dang_nhap.html";
+            }
+        </script>
+        
+    </body>
+</html>
